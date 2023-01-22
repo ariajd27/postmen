@@ -11,21 +11,47 @@ Postmen
 :: StoryInit
 <<set $name to "Claude">>
 <<set $companion to "none">>
+<<set $startingBoon to "none">>
+<<set $rations to 5>>
+<<set $foodRevealed to false>>
+
+:: StoryCaption
+<<if $foodRevealed>>
+    Days of food: $rations
+<</if>>
 
 :: Start
 You stand just inside of Twin Falls's North Gate, looking out at the desolate landscape around the town. A warm breeze blows, picking up dust and blowing it into your face. You look back, and see the farthest frontier town from the last wave of expansion by the Restored United States of America: a few reclaimed Before Era dwellings standing tall amidst a sea of modern huts and shacks, some of their roofs hard to look at in the bright midday sun.
 
 <<linkreplace "Who am I?">>
     You are <<textbox "$name" "Claudia">>, a Postman of the Restored United States Government. After traveling across Cascadia for several months, you've just begun to travel into the Rockies, where your real mission for New Portland lies.
+    
     <<linkreplace "What mission?">>
         You are to be one of the third wave of Pioneers: those who travel into lands and cultures unknown, cataloguing what you see and preparing the communities you find in the Utah Territory for integration into the RUSA.
+        
         <<linkreplace "Look beside you">>
             You are accompanied in your travels by <<cycle "$companion">>
-                [<<option "Kai, a friend you made on your way to Twin Falls" "Kai">>]
-                [<<option "Fang, your loyal Australian Shepard" "Fang">>]
-                [<<option "only memories from home and your own skills and determination">>]
+                <<option "Kai, a friend you made on your way to Twin Falls" "Kai">>
+                <<option "Fang, your loyal Australian Shepard" "Fang">>
+                <<option "only memories from home and your own skills and determination" "none">>
             <</cycle>>.
-            [[Leave|StartLeave]]
+
+            <<linkreplace "Leave the town">>
+                It's taken you long enough to get here; there's no sense standing around any longer. You've already stayed two nights in Twin Falls preparing for the true beginning of your mission, and all it's gotten you is <<cycle "$startingBoon">>
+                    <<option "a few extra rations, the little that these townspeople saw fit to contribute beyond their taxes" "food">>
+                    <<option "a few bits of knowledge here and there concerning the rest of the trail along Snake River" "intel">>
+                    <<option "a little more bored and exhausted than before" "none">>
+                <</cycle>>. You stride through the gate<<if $companion is "Kai">>, Kai following<<elseif $companion is "Fang">>, Fang in tow<</if>>, leaving the town behind.
+
+                [[Set off!]]
+            <</linkreplace>>
         <</linkreplace>>
     <</linkreplace>>
 <</linkreplace>>
+
+:: Set off!
+<<set $foodRevealed to true>>
+<<if $startingBoon if "food">>
+    <<set $rations to 8>>
+<</if>>
+UIBar.update();
