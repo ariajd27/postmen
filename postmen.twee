@@ -8,10 +8,15 @@ Postmen
     "format-version": "2.1.1"
 }
 
+:: StoryInit
+<<set $name to "Claude">>
+
 :: Start
-You stand in front of Twin Falls's North Gate, looking out at the desolate landscape around the town. A warm breeze blows, picking up dust and blowing it into your face. You look back, and see the farthest frontier town from the last wave of expansion by the Restored United States of America: a few reclaimed Before Era dwellings standing tall amidst a sea of modern huts and shacks, some of their roofs hard to look at in the bright midday sun.
+You stand just inside of Twin Falls's North Gate, looking out at the desolate landscape around the town. A warm breeze blows, picking up dust and blowing it into your face. You look back, and see the farthest frontier town from the last wave of expansion by the Restored United States of America: a few reclaimed Before Era dwellings standing tall amidst a sea of modern huts and shacks, some of their roofs hard to look at in the bright midday sun.
 
-[[Who are you?]]
-
-:: Who are you?
-You are (input: bind _name, "Claude"), a Postman.
+<<linkreplace "Who am I?">>
+    You are <<textbox "$name" "Claude">>, a Postman of the Restored United States Government. After traveling across Cascadia for several months, you've just begun to travel into the Rockies, where your real mission for New Portland lies.
+    <<linkreplace "What mission?">>
+        Your mission is to be one of the third wave of Pioneers: those who travel into lands and cultures unknown, cataloguing what you see and preparing the communities you find in the Utah Territory for integration into the RUSA.
+    <</linkreplace>>
+<</linkreplace>>
