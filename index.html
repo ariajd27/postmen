@@ -103,14 +103,15 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
 	<!-- UUID://C95B1B62-0AF3-4655-B3F0-68E557FFB90B// --><tw-storydata name="Postmen" startnode="3" creator="Tweego" creator-version="2.1.1" ifid="C95B1B62-0AF3-4655-B3F0-68E557FFB90B" zoom="1" format="SugarCube" format-version="2.30.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100">&lt;&lt;set $name to &quot;Claude&quot;&gt;&gt;
 &lt;&lt;set $companion to &quot;none&quot;&gt;&gt;
 &lt;&lt;set $startingBoon to &quot;none&quot;&gt;&gt;
-&lt;&lt;set $rations to 5&gt;&gt;
+&lt;&lt;set $rations to &quot;enough&quot;&gt;&gt;
 &lt;&lt;set $foodRevealed to false&gt;&gt;
-&lt;&lt;set $bullets to 20&gt;&gt;
-&lt;&lt;set $bulletsRevealed to false&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="225,100" size="100,100">&lt;&lt;if $foodRevealed&gt;&gt;
-    Days of food: $rations
+&lt;&lt;set $bullets to &quot;some&quot;&gt;&gt;
+&lt;&lt;set $bulletsRevealed to false&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="225,100" size="100,100">Remaining consumables
+&lt;&lt;if $foodRevealed&gt;&gt;
+    Rations: $rations
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $bulletsRevealed&gt;&gt;
-    Rounds remaining: $bullets
+    Rounds: $bullets
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Start" tags="" position="350,100" size="100,100">You stand just inside of Twin Falls&#39;s North Gate, looking out at the desolate landscape around the town. A warm breeze blows, picking up dust and blowing it into your face. You look back, and see the farthest frontier town from the last wave of expansion by the Restored United States of America: a few reclaimed Before Era dwellings standing tall amidst a sea of modern huts and shacks, some of their roofs hard to look at in the bright midday sun.
 
 &lt;&lt;linkreplace &quot;Who am I?&quot;&gt;&gt;
@@ -129,7 +130,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
             &lt;&lt;linkreplace &quot;Check your pack&quot;&gt;&gt;
                 &lt;&lt;set $foodRevealed to true&gt;&gt;
                 &lt;&lt;set $bulletsRevealed to true&gt;&gt;
-                You are carrying with you some food, what little remains after the journey you&#39;ve already made out here; your handgun and several bullets, unreplaceable relics of the ancient world of which the RUSA can spare few; your all-important journal and map; the letters that once were central to and remain important in missions like yours; and the usual rope, bedroll, and compass that are carried by any traveler these days. &lt;&lt;if $companion is &quot;Kai&quot;&gt;&gt;&lt;&lt;set $rations += 5&gt;&gt;Of course, Kai carries with her additional food for herself.&lt;&lt;/if&gt;&gt;&lt;&lt;if $companion is &quot;Fang&quot;&gt;&gt;Around your neck is a whistle for calling Fang.&lt;&lt;/if&gt;&gt;
+                You are carrying with you some food, what little remains after the journey you&#39;ve already made out here; your handgun and several bullets, unreplaceable relics of the ancient world of which the RUSA can spare few; your all-important journal and map; the letters that once were central to and remain important in missions like yours; and the usual rope, bedroll, and compass that are carried by any traveler these days. &lt;&lt;if $companion is &quot;Kai&quot;&gt;&gt;Of course, Kai carries with her additional food for herself.&lt;&lt;/if&gt;&gt;&lt;&lt;if $companion is &quot;Fang&quot;&gt;&gt;Around your neck is a whistle for calling Fang.&lt;&lt;/if&gt;&gt;
 
                 &lt;&lt;linkreplace &quot;Leave the town&quot;&gt;&gt;
                     It&#39;s taken you long enough to get here; there&#39;s no sense standing around any longer. You&#39;ve already stayed two nights in Twin Falls preparing for the true beginning of your mission, and all it&#39;s gotten you is &lt;&lt;cycle &quot;$startingBoon&quot;&gt;&gt;
@@ -144,7 +145,7 @@ var saveAs=saveAs||navigator.msSaveBlob&&navigator.msSaveBlob.bind(navigator)||f
         &lt;&lt;/linkreplace&gt;&gt;
     &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Set off!" tags="" position="475,100" size="100,100">&lt;&lt;if $startingBoon if &quot;food&quot;&gt;&gt;
-    &lt;&lt;set $rations += 3&gt;&gt;
+    &lt;&lt;set $rations to &quot;plenty&quot;&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 UIBar.update();</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
