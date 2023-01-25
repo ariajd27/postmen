@@ -12,17 +12,18 @@ Postmen
 <<set $name to "Claude">>
 <<set $companion to "none">>
 <<set $startingBoon to "none">>
-<<set $rations to 5>>
+<<set $rations to "enough">>
 <<set $foodRevealed to false>>
-<<set $bullets to 20>>
+<<set $bullets to "some">>
 <<set $bulletsRevealed to false>>
 
 :: StoryCaption
+Remaining consumables
 <<if $foodRevealed>>
-    Days of food: $rations
+    Rations: $rations
 <</if>>
 <<if $bulletsRevealed>>
-    Rounds remaining: $bullets
+    Rounds: $bullets
 <</if>>
 
 :: Start
@@ -44,7 +45,7 @@ You stand just inside of Twin Falls's North Gate, looking out at the desolate la
             <<linkreplace "Check your pack">>
                 <<set $foodRevealed to true>>
                 <<set $bulletsRevealed to true>>
-                You are carrying with you some food, what little remains after the journey you've already made out here; your handgun and several bullets, unreplaceable relics of the ancient world of which the RUSA can spare few; your all-important journal and map; the letters that once were central to and remain important in missions like yours; and the usual rope, bedroll, and compass that are carried by any traveler these days. <<if $companion is "Kai">><<set $rations += 5>>Of course, Kai carries with her additional food for herself.<</if>><<if $companion is "Fang">>Around your neck is a whistle for calling Fang.<</if>>
+                You are carrying with you some food, what little remains after the journey you've already made out here; your handgun and several bullets, unreplaceable relics of the ancient world of which the RUSA can spare few; your all-important journal and map; the letters that once were central to and remain important in missions like yours; and the usual rope, bedroll, and compass that are carried by any traveler these days. <<if $companion is "Kai">>Of course, Kai carries with her additional food for herself.<</if>><<if $companion is "Fang">>Around your neck is a whistle for calling Fang.<</if>>
 
                 <<linkreplace "Leave the town">>
                     It's taken you long enough to get here; there's no sense standing around any longer. You've already stayed two nights in Twin Falls preparing for the true beginning of your mission, and all it's gotten you is <<cycle "$startingBoon">>
@@ -62,6 +63,6 @@ You stand just inside of Twin Falls's North Gate, looking out at the desolate la
 
 :: Set off!
 <<if $startingBoon if "food">>
-    <<set $rations += 3>>
+    <<set $rations to "plenty">>
 <</if>>
 UIBar.update();
