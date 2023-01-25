@@ -14,10 +14,15 @@ Postmen
 <<set $startingBoon to "none">>
 <<set $rations to 5>>
 <<set $foodRevealed to false>>
+<<set $bullets to 20>>
+<<set $bulletsRevealed to false>>
 
 :: StoryCaption
 <<if $foodRevealed>>
     Days of food: $rations
+<</if>>
+<<if $bulletsRevealed>>
+    Rounds remaining: $bullets
 <</if>>
 
 :: Start
@@ -36,22 +41,27 @@ You stand just inside of Twin Falls's North Gate, looking out at the desolate la
                 <<option "only memories from home and your own skills and determination" "none">>
             <</cycle>>.
 
-            <<linkreplace "Leave the town">>
-                It's taken you long enough to get here; there's no sense standing around any longer. You've already stayed two nights in Twin Falls preparing for the true beginning of your mission, and all it's gotten you is <<cycle "$startingBoon">>
-                    <<option "a few extra rations, the little that these townspeople saw fit to contribute beyond their taxes" "food">>
-                    <<option "a few bits of knowledge here and there concerning the rest of the trail along Snake River" "intel">>
-                    <<option "a little more bored and exhausted than before" "none">>
-                <</cycle>>. You stride through the gate<<if $companion is "Kai">>, Kai following<<elseif $companion is "Fang">>, Fang in tow<</if>>, leaving the town behind.
+            <<linkreplace "Check your pack">>
+                <<set $foodRevealed to true>>
+                <<set $bulletsRevealed to true>>
+                You are carrying with you some food, what little remains after the journey you've already made out here; your handgun and several bullets, unreplaceable relics of the ancient world of which the RUSA can spare few; your all-important journal and map; the letters that once were central to and remain important in missions like yours; and the usual rope, bedroll, and compass that are carried by any traveler these days. <<if $companion is "Kai">><<set $rations += 5>>Of course, Kai carries with her additional food for herself.<</if>><<if $companion is "Fang">>Around your neck is a whistle for calling Fang.<</if>>
 
-                [[Set off!]]
+                <<linkreplace "Leave the town">>
+                    It's taken you long enough to get here; there's no sense standing around any longer. You've already stayed two nights in Twin Falls preparing for the true beginning of your mission, and all it's gotten you is <<cycle "$startingBoon">>
+                        <<option "a few extra rations, the little that these townspeople saw fit to contribute beyond their taxes" "food">>
+                        <<option "a few bits of knowledge here and there concerning the rest of the trail along Snake River" "intel">>
+                        <<option "a little more bored and exhausted than before" "none">>
+                    <</cycle>>. You stride through the gate<<if $companion is "Kai">>, Kai following<<elseif $companion is "Fang">>, Fang in tow<</if>>, leaving the town behind.
+
+                    [[Set off!]]
+                <</linkreplace>>
             <</linkreplace>>
         <</linkreplace>>
     <</linkreplace>>
 <</linkreplace>>
 
 :: Set off!
-<<set $foodRevealed to true>>
 <<if $startingBoon if "food">>
-    <<set $rations to 8>>
+    <<set $rations += 3>>
 <</if>>
 UIBar.update();
