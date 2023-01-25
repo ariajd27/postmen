@@ -62,7 +62,6 @@ You stand just inside of Twin Falls's North Gate, looking out at the desolate la
 <</linkreplace>>
 
 :: Set off!
-<<if $startingBoon if "food">>
+<<if $startingBoon is "food">>
     <<set $rations to "plenty">>
 <</if>>
-UIBar.update();
