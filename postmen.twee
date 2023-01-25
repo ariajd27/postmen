@@ -18,7 +18,9 @@ Postmen
 <<set $bulletsRevealed to false>>
 
 :: StoryCaption
+<<if $foodRevealed or $bulletsRevealed>>
 Remaining consumables
+<</if>>
 <<if $foodRevealed>>
     Rations: $rations
 <</if>>
